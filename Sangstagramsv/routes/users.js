@@ -39,9 +39,7 @@ router.post('/signin', function(req, res, next) {
   .then(userprofile => {
       console.log("로그인 성공");
       res.json({ resultCode : resCode.Success,
-                 message: resCode.SuccessMessage,
-                 id : userprofile.id,
-                 password : userprofile.password
+                 message: resCode.SuccessMessage
                  });
   })
   .catch(err => {

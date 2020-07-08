@@ -25,7 +25,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp">
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/email_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,6 +54,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="35dp"/>
         <Button
+            android:id="@+id/facebook"
             android:text="@string/signin_facebook"
             android:textColor="@color/colorWhite"
             android:background="@drawable/btn_signin_facebook"
@@ -63,6 +64,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="5dp"/>
         <Button
+            android:id="@+id/google"
             android:text="@string/signin_google"
             android:textColor="@color/colorWhite"
             android:background="@drawable/btn_signin_google"
