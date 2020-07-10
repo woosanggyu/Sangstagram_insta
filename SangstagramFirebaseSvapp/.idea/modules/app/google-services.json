@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "438659790056",
+    "firebase_url": "https://sangstagramfirebaseserver.firebaseio.com",
+    "project_id": "sangstagramfirebaseserver",
+    "storage_bucket": "sangstagramfirebaseserver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438659790056:android:6886b8c04023ccfedf455d",
+        "android_client_info": {
+          "package_name": "com.example.sangstagram_firebase_server"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438659790056-pqabsshau408d6p1emo1mmhhkh3h94pa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sangstagram_firebase_server",
+            "certificate_hash": "3f02330d02c3f8ef13f2447e69c2517d00ab2dae"
+          }
+        },
+        {
+          "client_id": "438659790056-9vp81cio2ubq9u114hteo5p35tevest0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_ijqoF0Zpyqw7fdV2vl5N5RoEJOX-xSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438659790056-9vp81cio2ubq9u114hteo5p35tevest0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
