@@ -8,6 +8,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -50,6 +53,13 @@ public class LoginActivity extends AppCompatActivity {
                 Login();
             }
         });
+
+        facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void Login() {
@@ -87,7 +97,6 @@ public class LoginActivity extends AppCompatActivity {
             startLogin(new LoginData(email, password));
         }
     }
-
     private void startLogin(LoginData data) {
         api.userLogin(data).enqueue(new Callback<LoginResponse>() {
             @Override
@@ -105,11 +114,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
         });
     }
-
     private boolean isEmailValid(String email) {
         return email.contains("@");
     }
-
     private boolean isPasswordValid(String password) {
         return password.length() >= 6;
     }
