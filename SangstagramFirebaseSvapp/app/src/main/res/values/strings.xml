@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Sangstagram_firebase_server</string>
 
-    <string name="facebook_app_id">873009302900995</string>
+    <string name="facebook_app_id">574439740129330</string>
 
-    <string name="fb_login_protocol_scheme">fb873009302900995</string>
+    <string name="fb_login_protocol_scheme">fb574439740129330</string>
+
 
     <!-- Sign In -->
 
