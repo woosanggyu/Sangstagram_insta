@@ -3,9 +3,8 @@ package com.example.sangstagram_firebase_server.navigation
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sangstagram_firebase_server.R
 import com.example.sangstagram_firebase_server.navigation.model.ContentDTO
 import com.google.android.gms.tasks.Task
@@ -85,7 +84,7 @@ class AddPhotoActivity : AppCompatActivity() {
             contentDTO.explain = addphoto_edit_explain.text.toString()
 
             //insert timestamp
-            contentDTO.timestamp = timestamp
+            contentDTO.timestamp = System.currentTimeMillis()
 
             firestore?.collection("images")?.document()?.set(contentDTO)
 
@@ -113,7 +112,7 @@ class AddPhotoActivity : AppCompatActivity() {
                 contentDTO.explain = addphoto_edit_explain.text.toString()
 
                 //insert timestamp
-                contentDTO.timestamp = timestamp
+                contentDTO.timestamp = System.currentTimeMillis()
 
                 firestore?.collection("images")?.document()?.set(contentDTO)
 
