@@ -60,14 +60,14 @@ class AddPhotoActivity : AppCompatActivity() {
     fun contentUpload() {
         //Make filename
 
-        var timestamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        var imageFileName = "IMAGE" + timestamp + "_.png"
+        var timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        var imageFileName = "JEPG_" + timeStamp + "_.png"
 
         var storageRef = storage?.reference?.child("images")?.child(imageFileName)
 
         //Promise method
         storageRef?.putFile(photoUri!!)?.continueWithTask { task: Task<UploadTask.TaskSnapshot> ->
-            return@continueWithTask storageRef.downloadUrl
+                    return@continueWithTask storageRef.downloadUrl
         }?.addOnSuccessListener { uri ->
             var contentDTO = ContentDTO()
 
@@ -95,31 +95,31 @@ class AddPhotoActivity : AppCompatActivity() {
 
 
         //callback method
-        storageRef?.putFile(photoUri!!)?.addOnSuccessListener {
-            storageRef.downloadUrl.addOnSuccessListener { uri ->
-                var contentDTO = ContentDTO()
-
-                // Insert downloadUrl of image
-                contentDTO.imageUrl = uri.toString()
-
-                //Insert uid of user
-                contentDTO.uid = auth?.currentUser?.uid
-
-                //Insert userId
-                contentDTO.userId = auth?.currentUser?.email
-
-                //Insert explain of content
-                contentDTO.explain = addphoto_edit_explain.text.toString()
-
-                //insert timestamp
-                contentDTO.timestamp = System.currentTimeMillis()
-
-                firestore?.collection("images")?.document()?.set(contentDTO)
-
-                setResult(Activity.RESULT_OK)
-
-                finish()
-            }
-        }
+//        storageRef?.putFile(photoUri!!)?.addOnSuccessListener {
+//            storageRef.downloadUrl.addOnSuccessListener { uri ->
+//                var contentDTO = ContentDTO()
+//
+//                // Insert downloadUrl of image
+//                contentDTO.imageUrl = uri.toString()
+//
+//                //Insert uid of user
+//                contentDTO.uid = auth?.currentUser?.uid
+//
+//                //Insert userId
+//                contentDTO.userId = auth?.currentUser?.email
+//
+//                //Insert explain of content
+//                contentDTO.explain = addphoto_edit_explain.text.toString()
+//
+//                //insert timestamp
+//                contentDTO.timestamp = System.currentTimeMillis()
+//
+//                firestore?.collection("images")?.document()?.set(contentDTO)
+//
+//                setResult(Activity.RESULT_OK)
+//
+//                finish()
+//            }
+//        }
     }
 }
