@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.sangstagram_firebase_server.R
 import com.example.sangstagram_firebase_server.navigation.model.ContentDTO
 import com.google.firebase.auth.FirebaseAuth
@@ -63,6 +64,19 @@ class DetailViewFragment : Fragment() {
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             var viewholder = (holder as CustomViewHolder).itemView
+
+            // Profile Image 가져오기
+            firestore?.collection("profileImages")?.document(contentDTOs[position].uid!!)
+                ?.get()?.addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+
+                        val url = task.result!!["image"]
+                        Glide.with(holder.itemView.context)
+                            .load(url)
+                            .apply(RequestOptions().circleCrop()).into(viewholder.detailviewitem_profile_image)
+
+                    }
+                }
 
             //UserId
             viewholder.detailviewitem_profile_text.text = contentDTOs!![position].userId
