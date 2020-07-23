@@ -50,11 +50,13 @@ class CommentActivity : AppCompatActivity() {
         alarmDTO.userId = FirebaseAuth.getInstance().currentUser?.email
         alarmDTO.uid = FirebaseAuth.getInstance().currentUser?.uid
         alarmDTO.timestamp = System.currentTimeMillis()
+        alarmDTO.kind = 1
         alarmDTO.message = message
         FirebaseFirestore.getInstance().collection("alarms"). document().set(alarmDTO)
     }
     inner class CommentRecyclerviewAdater : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         var comments : ArrayList<ContentDTO.Comment> = arrayListOf()
+
         init {
             FirebaseFirestore.getInstance()
                 .collection("images")
@@ -84,6 +86,10 @@ class CommentActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            val layoutParams = holder.itemView.layoutParams
+            layoutParams.height = 80
+            holder.itemView.requestLayout()
+
             var view = holder.itemView
             view.commentviewitem_textview_comment.text = comments[position].comment
             view.commentviewitem_textview_profile.text = comments[position].userId
