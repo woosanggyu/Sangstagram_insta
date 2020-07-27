@@ -166,7 +166,7 @@ class UserFragment : Fragment() {
         alarmDTO.timestamp = System.currentTimeMillis()
         FirebaseFirestore.getInstance().collection("alarms").document().set(alarmDTO)
 
-        var message = auth?.currentUser?.email + getString(R.string.alarm_follow)
+        var message = auth?.currentUser?.email + "님이 팔로우 하셨습니다."
         FcmPush.instance.sendMessage(destinationUid,"Sangstagram",message)
     }
     fun getProfileImage() {

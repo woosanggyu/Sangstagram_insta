@@ -9,7 +9,7 @@ import java.io.IOException
 class FcmPush {
     var JSON = MediaType.parse("application/json; charset=utf-8")
     var url = "https://fcm.googleapis.com/fcm/send"
-    var serverKey = "AIzaSyA9RionJysIZuZ9Bj9sjzA6VtoUrPOheFE"
+    var serverKey = "AAAAZiIpNOg:APA91bH0hru31Pj7wu2nVv2I3YtNzE2U6UE06_alloLWwO3_dbqWIuUXB1we5vcF13iMP8LKAjwgeaqGMH-D1oKolzgtGKefBYTGWBw4bsrZp53P7fIOCVlx_R2BEsRJfTbgCkxnNWhT"
     var gson : Gson? = null
     var okHttpClient : OkHttpClient? = null
 
@@ -34,7 +34,7 @@ class FcmPush {
                 var body = RequestBody.create(JSON,gson?.toJson(pushDTO))
                 var request = Request.Builder()
                     .addHeader("Content-Type", "application/json")
-                    .addHeader("Authorization", "key=" + serverKey)
+                    .addHeader("Authorization", "key="+serverKey)
                     .url(url)
                     .post(body)
                     .build()

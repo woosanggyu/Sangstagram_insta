@@ -55,7 +55,7 @@ class CommentActivity : AppCompatActivity() {
         alarmDTO.message = message
         FirebaseFirestore.getInstance().collection("alarms"). document().set(alarmDTO)
 
-        var msg = FirebaseAuth.getInstance()?.currentUser?.email + " : " + getString(R.string.alarm_comment)
+        var msg = FirebaseAuth.getInstance()?.currentUser?.email + "님의 댓글 :" + message
         FcmPush.instance.sendMessage(destinationUid,"Sangstagram",msg)
     }
     inner class CommentRecyclerviewAdater : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

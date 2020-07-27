@@ -153,7 +153,7 @@ class DetailViewFragment : Fragment() {
             alarmDTO.timestamp = System.currentTimeMillis()
             FirebaseFirestore.getInstance().collection("alarms").document().set(alarmDTO)
 
-            var message = FirebaseAuth.getInstance()?.currentUser?.email + getString(R.string.alarm_favorite)
+            var message = FirebaseAuth.getInstance()?.currentUser?.email + "님이 좋아요를 누르셨습니다."
             FcmPush.instance.sendMessage(destinationUid,"Sangstagram",message)
         }
     }
